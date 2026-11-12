@@ -1,0 +1,240 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Vvedite chislo: ";
+    cin >> n;
+
+    // Цикл от 0 до введенного числа
+    for (int i = 0; i <= n; i++) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Vvedite dve granicy diapazona: ";
+    cin >> a >> b;
+
+    // Если пользователь ввел границы в обратном порядке, меняем их местами
+    if (a > b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // 1. Все числа из диапазона
+    cout << "\nVse chisla:" << endl;
+    for (int i = a; i <= b; i++) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    // 2. Все парные числа
+    cout << "Parnye chisla:" << endl;
+    for (int i = a; i <= b; i++) {
+        if (i % 2 == 0) {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+
+    // 3. Все непарные числа
+    cout << "Neparnye chisla:" << endl;
+    for (int i = a; i <= b; i++) {
+        if (i % 2 != 0) {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+
+    // 4. Числа, кратные семи
+    cout << "Chisla, kratnye semi:" << endl;
+    for (int i = a; i <= b; i++) {
+        if (i % 7 == 0) {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Vvedite dve granicy diapazona: ";
+    cin >> a >> b;
+
+    // Проверка на произвольный порядок границ
+    if (a > b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    int sum = 0;
+    for (int i = a; i <= b; i++) {
+        sum += i; // прибавляем каждое число к сумме
+    }
+
+    cout << "Summa vseh chisel diapazona: " << sum << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int num;
+    int sum = 0;
+
+    cout << "Vvodite chisla (vvedite 0 dlya zaversheniya):" << endl;
+
+    while (true) {
+        cin >> num;
+        
+        if (num == 0) {
+            break; // выход из цикла при вводе нуля
+        }
+        
+        sum += num;
+    }
+
+    cout << "Obshchaya summa vvedennyh chisel: " << sum << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    srand(time(0)); // инициализация генератора случайных чисел
+    int secret = rand() % 500 + 1; // загаданное число от 1 до 500
+    int guess;
+    int attempts = 0;
+
+    cout << "=== IGRA 'VGADAY CHISLO' (1 - 500) ===" << endl;
+    cout << "Dlya vyhoda vvedite 0." << endl;
+
+    while (true) {
+        cout << "Vvedite vashe chislo: ";
+        cin >> guess;
+
+        if (guess == 0) {
+            cout << "Igra ostanovlena. Zagadannoe chislo bylo: " << secret << endl;
+            break;
+        }
+
+        attempts++;
+
+        if (guess > secret) {
+            cout << "Zagadannoe chislo MENSHE." << endl;
+        } else if (guess < secret) {
+            cout << "Zagadannoe chislo BOLSHE." << endl;
+        } else {
+            cout << "\nPozdravlyayu! Vy ugadali chislo za " << attempts << " popytok(-ki)." << endl;
+            break;
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int choice;
+    double amount;
+
+    // Примерные курсы валют
+    double usd_rate = 41.5; 
+    double eur_rate = 44.0; 
+
+    cout << "=== KONVERTER VALYUT ===" << endl;
+    cout << "1. Grivna v Dollar" << endl;
+    cout << "2. Dollar v Grivnu" << endl;
+    cout << "3. Grivna v Evro" << endl;
+    cout << "4. Evro v Grivnu" << endl;
+    cout << "Vyberite variant (1-4): ";
+    cin >> choice;
+
+    if (choice == 1) {
+        cout << "Vvedite summu v grivnah: ";
+        cin >> amount;
+        cout << amount << " UAH = " << amount / usd_rate << " USD" << endl;
+    } 
+    else if (choice == 2) {
+        cout << "Vvedite summu v dollarah: ";
+        cin >> amount;
+        cout << amount << " USD = " << amount * usd_rate << " UAH" << endl;
+    } 
+    else if (choice == 3) {
+        cout << "Vvedite summu v grivnah: ";
+        cin >> amount;
+        cout << amount << " UAH = " << amount / eur_rate << " EUR" << endl;
+    } 
+    else if (choice == 4) {
+        cout << "Vvedite summu v evro: ";
+        cin >> amount;
+        cout << amount << " EUR = " << amount * eur_rate << " UAH" << endl;
+    } 
+    else {
+        cout << "Oshibka: nevybiran vernyj punkt menyu!" << endl;
+    }
+
+    return 0;
+}
